@@ -7,7 +7,7 @@ FROM nginx:${VERSION}alpine as dev
 COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Prod image
-FROM dev as prod
+FROM nginx:${VERSION}alpine as prod
 
 # Copy assets
 COPY ./assets /app/public
