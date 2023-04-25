@@ -28,7 +28,7 @@ RUN curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php &&\
     
 # Test image
 FROM dev AS test
-RUN composer update
+RUN  find composer.json | composer update
 WORKDIR /app
 
 ## Copy project files to workdir
