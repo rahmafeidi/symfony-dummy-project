@@ -9,6 +9,9 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        sh 'sudo groupadd docker'
+        sh 'sudo usermod -aG docker $USER'
+        sh 'chmod 777 /var/run/docker.sock'
         sh 'docker build -t rahmafeidi/nginx docker/nginx/'
         sh 'docker build -t rahmafeidi/mysql docker/mysql/'
         sh 'docker build -t rahmafeidi/php-fpm docker/php-fpm/'
@@ -21,9 +24,6 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'sudo groupadd docker'
-        sh 'sudo usermod -aG docker $USER'
-        sh 'chmod 777 /var/run/docker.sock'
         sh 'docker push rahmafeidi/nginx'
         sh 'docker push rahmafeidi/mysql'
         sh 'docker push rahmafeidi/php-fpm'
