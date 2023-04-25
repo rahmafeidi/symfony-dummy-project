@@ -31,7 +31,7 @@ FROM dev AS test
 WORKDIR /app
 ENV COMPOSER_ALLOW_SUPERUSER=1	
 COPY composer.json /app
-RUN chmod 777 /app/composeer.json
+RUN chmod 777 /app/composer.json
 RUN composer update
 
 ## Copy project files to workdir
