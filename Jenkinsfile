@@ -7,6 +7,13 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
   }
   stages {
+    stages {
+
+    stage('Checkout Source') {
+      steps {
+        git 'https://github.com/rahmafeidi/symfony-dummy-project.git'
+      }
+    }
     stage('Build') {
       steps {
         sh 'docker build -t rahmafeidi/nginx  docker/nginx/'
