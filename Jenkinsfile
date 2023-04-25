@@ -9,9 +9,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t rahmafeidi/nginx -f docker/nginx/'
-        sh 'docker build -t rahmafeidi/mysql -f docker/mysql/'
-        sh 'docker build -t rahmafeidi/php-fpm -f docker/php-fpm/'
+        sh 'docker build -t rahmafeidi/nginx -f docker/nginx/Dockerfile'
+   
       }
     }
     stage('Login') {
