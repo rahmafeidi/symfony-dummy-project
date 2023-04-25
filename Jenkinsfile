@@ -9,8 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'groupadd docker'
-        sh 'usermod -aG docker $USER'
+        sh 'usermod -aG docker jenkins'
         sh 'chmod 777 /var/run/docker.sock'
         sh 'docker build -t rahmafeidi/nginx docker/nginx/'
         sh 'docker build -t rahmafeidi/mysql docker/mysql/'
