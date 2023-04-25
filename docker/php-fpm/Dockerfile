@@ -15,7 +15,7 @@ RUN pecl install xdebug-2.9.0 && \
     docker-php-ext-enable xdebug && \
     docker-php-ext-install pdo_mysql zip
 ## Copy php default configuration
-COPY default.ini /usr/local/etc/php/conf.d/default.ini
+COPY docker/php-fpm/default.ini /usr/local/etc/php/conf.d/default.ini
 
 ENV APP_ENV=dev
 WORKDIR /app
