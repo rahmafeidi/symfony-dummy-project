@@ -10,4 +10,5 @@ COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 FROM dev as prod
 
 # Copy assets
+RUN mkdir -p /app/public
 COPY assets /app/public
