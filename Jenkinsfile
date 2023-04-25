@@ -7,7 +7,6 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
   }
   stages {
-    stages {
 
     stage('Checkout Source') {
       steps {
