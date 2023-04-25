@@ -10,8 +10,8 @@ pipeline {
     stage('Build') {
       steps {
         sh 'docker build -t rahmafeidi/nginx -f docker/nginx/Dockerfile'
-        sh 'docker build -t rahmafeidi/mysql docker/mysql/Dockerfile'
-        sh 'docker build -t rahmafeidi/php-fpm docker/php-fpm/Dockerfile'
+        sh 'docker build -t rahmafeidi/mysql -f docker/mysql/Dockerfile'
+        sh 'docker build -t rahmafeidi/php-fpm -f docker/php-fpm/Dockerfile'
       }
     }
     stage('Login') {
