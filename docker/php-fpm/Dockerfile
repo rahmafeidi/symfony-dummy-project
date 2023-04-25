@@ -28,7 +28,8 @@ RUN curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php &&\
     
 # Test image
 FROM dev AS test
-RUN  find composer.json | composer update
+ENV COMPOSER_ALLOW_SUPERUSER=1
+RUN  find ../../composer.json | composer update
 WORKDIR /app
 
 ## Copy project files to workdir
