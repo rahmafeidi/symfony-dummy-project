@@ -24,8 +24,7 @@ WORKDIR /app
 RUN curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php &&\
     HASH=`curl -sS https://composer.github.io/installer.sig` && \
     php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && \
-    php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
-     composer global require hirak/prestissimo
+    php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer 
     
 # Test image
 FROM dev AS test
@@ -58,5 +57,4 @@ RUN rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 ## Cleanup
 RUN apk del dev-deps 
-RUN composer global remove hirak/prestissimo 
 RUN rm /usr/local/bin/composer
