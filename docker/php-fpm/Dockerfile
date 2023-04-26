@@ -56,6 +56,6 @@ RUN composer install --no-dev --no-interaction --optimize-autoloader
 RUN rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 ## Cleanup
-RUN apk del dev-deps && \
-    composer global remove hirak/prestissimo -no-cache && \
-    rm /usr/local/bin/composer
+RUN apk del dev-deps 
+RUN composer global remove hirak/prestissimo 
+RUN rm /usr/local/bin/composer
