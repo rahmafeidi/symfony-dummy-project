@@ -17,7 +17,7 @@ pipeline {
       steps {
         sh 'docker build -t rahmafeidi/nginx  docker/nginx/'
         sh 'docker build -t rahmafeidi/mysql  docker/mysql/'
-        sh 'docker build -t rahmafeidi/php-fpm  docker/php-fpm/'
+        sh 'docker build -t rahmafeidi/phpfpm  docker/php-fpm/'
       }
     }
     stage('Login') {
@@ -29,7 +29,7 @@ pipeline {
       steps {
         sh 'docker push rahmafeidi/nginx'
         sh 'docker push rahmafeidi/mysql'
-        sh 'docker push rahmafeidi/php-fpm'
+        sh 'docker push rahmafeidi/phpfpm'
       }
     }
   }
